@@ -1,3 +1,8 @@
+/**************************************************************************************
+* @file        : ColorCode.h
+* @brief       : Contains definition for ColorPair class
+*
+**************************************************************************************/
 #ifndef COLORCODE_H_
 #define COLORCODE_H_
 
@@ -9,22 +14,25 @@ namespace TelCoColorCoder
 enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
 enum MinorColor {BLUE, ORANGE, GREEN, BROWN, SLATE};
 
-class ColorPair {
+class ColorPair
+{
+public:
+	ColorPair(MajorColor major, MinorColor minor);
+	~ColorPair();
+
+	MajorColor getMajorColor();
+	MinorColor getMinorColor();
+	std::string ToString();
+
 private:
 	MajorColor majorColor;
 	MinorColor minorColor;
-public:
-	ColorPair(MajorColor major, MinorColor minor);
-	MajorColor getMajor();
-	MinorColor getMinor();
-	std::string ToString();
 };
-
 
 	ColorPair GetColorFromPairNumber(int pairNumber);
 	int GetPairNumberFromColor(MajorColor major, MinorColor minor);
 
 
-} /* TelCoColorCoder */
+} /* namespace TelCoColorCoder*/
 
 #endif /* COLORCODE_H_ */
