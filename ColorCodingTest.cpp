@@ -8,8 +8,6 @@
 #include <assert.h>
 #include "ColorCode.h"
 
-using namespace TelCoColorCoder;
-
 /**
  * Description     : testNumberToPair : To validate if the given Pair Number refers to the expected Major Color and Minor Color combination
  *
@@ -46,7 +44,9 @@ void printColorCodeReference()
 	std::cout << "----------------------------- "<< std::endl;
 	std::cout << "PairNumber | MajorColor | MinorColor "<< std::endl;
 
-	for (int pairNumber = 1 ; pairNumber <= 25 ; ++ pairNumber )
+	int maxPairCount = TelCoColorCoder::numberOfMajorColors * TelCoColorCoder::numberOfMinorColors;
+
+	for (int pairNumber = 1 ; pairNumber <= maxPairCount ; ++ pairNumber )
 	{
 		TelCoColorCoder::ColorPair colorPair = TelCoColorCoder::GetColorFromPairNumber(pairNumber);
 		std::cout << pairNumber << "\t" << colorPair.ToString() << std::endl ;
