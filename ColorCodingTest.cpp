@@ -6,7 +6,8 @@
 #include <iostream>
 #include <iomanip>
 #include <assert.h>
-#include "ColorCode.h"
+
+#include "TelCoColorCoder.h"
 
 /**
  * Description     : testNumberToPair : To validate if the given Pair Number refers to the expected Major Color and Minor Color combination
@@ -49,7 +50,7 @@ void printColorCodeReference()
 	for (int pairNumber = 1 ; pairNumber <= maxPairCount ; ++ pairNumber )
 	{
 		TelCoColorCoder::ColorPair colorPair = TelCoColorCoder::GetColorFromPairNumber(pairNumber);
-		std::cout << pairNumber << "\t" << colorPair.ToString() << std::endl ;
+		std::cout <<std::setw(6)<< pairNumber << " \t   | \t "<< colorPair.ToString() << std::endl ;
 	}
 }
 

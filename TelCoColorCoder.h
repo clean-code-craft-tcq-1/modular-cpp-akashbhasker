@@ -1,10 +1,10 @@
 /**************************************************************************************
 * @file        : ColorCode.h
-* @brief       : Contains definition for ColorPair class
+* @brief       : Contains definition for ColorPair class and Utility Functions
 *
 **************************************************************************************/
-#ifndef COLORCODE_H_
-#define COLORCODE_H_
+#ifndef TELCOCOLORCODER_H_
+#define TELCOCOLORCODER_H_
 
 #include <iostream>
 
@@ -38,4 +38,4 @@ private:
 
 } /* namespace TelCoColorCoder*/
 
-#endif /* COLORCODE_H_ */
+#endif /* TELCOCOLORCODER_H_ */

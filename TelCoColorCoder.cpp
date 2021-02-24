@@ -1,12 +1,12 @@
 /**************************************************************************************
-* @file        : ColorCode.cpp
-* @brief       : Contains Implementation for Color Code Class
+* @file        : TelCoColorCoder.cpp
+* @brief       : Contains Implementation for Color Code Class and Utility functions
 *
 **************************************************************************************/
 #include <iostream>
 #include <assert.h>
-#include "ColorCode.h"
 
+#include "TelCoColorCoder.h"
 using namespace TelCoColorCoder;
 
 
