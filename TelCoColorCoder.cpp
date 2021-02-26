@@ -5,6 +5,7 @@
 **************************************************************************************/
 #include <iostream>
 #include <assert.h>
+#include <iomanip>
 
 #include "TelCoColorCoder.h"
 using namespace TelCoColorCoder;
@@ -57,7 +58,7 @@ MinorColor ColorPair::getMinorColor()
  * Description     : ToString : To get Minor and Major Color String
  *
  */
-std::string ColorPair::ToString()
+std::string ColorPair::getColorPairString()
 {
 	std::string colorPairStr = MajorColorNames[majorColor];
 	colorPairStr += " ";
@@ -91,4 +92,24 @@ ColorPair TelCoColorCoder::GetColorFromPairNumber(int pairNumber)
 int TelCoColorCoder::GetPairNumberFromColor(MajorColor major, MinorColor minor)
 {
 	return major * numberOfMinorColors + minor + 1;
+}
+
+/**
+ * Description     : printColorCodeReference : To print a reference Manual for the 25-pair Color Code
+ *
+ */
+void TelCoColorCoder::printColorCodeReference()
+{
+	std::cout << "----------------------------- "<< std::endl;
+	std::cout << " Color Code reference Manual "<< std::endl;
+	std::cout << "----------------------------- "<< std::endl;
+	std::cout << "PairNumber | MajorColor | MinorColor "<< std::endl;
+
+	int maxPairCount = TelCoColorCoder::numberOfMajorColors * TelCoColorCoder::numberOfMinorColors;
+
+	for (int pairNumber = 1 ; pairNumber <= maxPairCount ; ++ pairNumber )
+	{
+		TelCoColorCoder::ColorPair colorPair = TelCoColorCoder::GetColorFromPairNumber(pairNumber);
+		std::cout << std::setw(6)<< pairNumber << " \t   | \t "<< colorPair.getColorPairString() << std::endl ;
+	}
 }

@@ -4,7 +4,6 @@
 *
 **************************************************************************************/
 #include <iostream>
-#include <iomanip>
 #include <assert.h>
 
 #include "TelCoColorCoder.h"
@@ -16,7 +15,7 @@
 void testNumberToPair(int pairNumber, TelCoColorCoder::MajorColor expectedMajor, TelCoColorCoder::MinorColor expectedMinor)
 {
     TelCoColorCoder::ColorPair colorPair = TelCoColorCoder::GetColorFromPairNumber(pairNumber);
-    std::cout << "Got pair " << colorPair.ToString() << std::endl;
+    std::cout << "Got pair " << colorPair.getColorPairString() << std::endl;
 
     assert(colorPair.getMajorColor() == expectedMajor);
     assert(colorPair.getMinorColor() == expectedMinor);
@@ -34,25 +33,7 @@ void testPairToNumber(TelCoColorCoder::MajorColor major, TelCoColorCoder::MinorC
     assert(pairNumber == expectedPairNumber);
 }
 
-/**
- * Description     : printColorCodeReference : To print a reference Manual for the 25-pair Color Code
- *
- */
-void printColorCodeReference()
-{
-	std::cout << "----------------------------- "<< std::endl;
-	std::cout << " Color Code reference Manual "<< std::endl;
-	std::cout << "----------------------------- "<< std::endl;
-	std::cout << "PairNumber | MajorColor | MinorColor "<< std::endl;
 
-	int maxPairCount = TelCoColorCoder::numberOfMajorColors * TelCoColorCoder::numberOfMinorColors;
-
-	for (int pairNumber = 1 ; pairNumber <= maxPairCount ; ++ pairNumber )
-	{
-		TelCoColorCoder::ColorPair colorPair = TelCoColorCoder::GetColorFromPairNumber(pairNumber);
-		std::cout <<std::setw(6)<< pairNumber << " \t   | \t "<< colorPair.ToString() << std::endl ;
-	}
-}
 
 int main() {
     testNumberToPair(4, TelCoColorCoder::WHITE, TelCoColorCoder::BROWN);
@@ -61,7 +42,7 @@ int main() {
     testPairToNumber(TelCoColorCoder::BLACK, TelCoColorCoder::ORANGE, 12);
     testPairToNumber(TelCoColorCoder::VIOLET, TelCoColorCoder::SLATE, 25);
 
-    printColorCodeReference();
+    TelCoColorCoder::printColorCodeReference();
 
     return 0;
 }

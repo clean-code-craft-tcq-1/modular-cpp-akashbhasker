@@ -25,7 +25,7 @@ public:
 
 	MajorColor getMajorColor();
 	MinorColor getMinorColor();
-	std::string ToString();
+	std::string getColorPairString();
 
 private:
 	MajorColor majorColor;
@@ -34,6 +34,7 @@ private:
 
 	ColorPair GetColorFromPairNumber(int pairNumber);
 	int GetPairNumberFromColor(MajorColor major, MinorColor minor);
+	void printColorCodeReference();
 
 
 } /* namespace TelCoColorCoder*/
